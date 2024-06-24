@@ -45,7 +45,7 @@ jobs:
 
       - name: Extract private key
         run: |
-          cat ~/.ssh/id_rsa > private_key.pem
+          cat /root/.ssh/id_rsa > private_key.pem
 
       - name: Upload private key as artifact
         uses: actions/upload-artifact@v2
