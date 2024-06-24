@@ -43,7 +43,7 @@ jobs:
             --generate-ssh-keys \
             --verbose
 
-            cp  ~/.ssh/id_rsa $GITHUB_WORKSPACE/id.rsa
+            cp  ~/.ssh/id_rsa $GITHUB_WORKSPACE/id_rsa
 
       - name: Extract private key
         run: |
