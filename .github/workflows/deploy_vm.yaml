@@ -45,10 +45,13 @@ jobs:
 
       - name: Extract private key
         run: |
-          sudo cat /root/.ssh/id_rsa | sudo tee private_key.pem > /dev/null
+          ls -la ~/.ssh
+          echo "========="
+          ls -la ~/
+          sudo cat ~/.ssh/id_rsa | sudo tee private_key.pem > /dev/null
 
       - name: Upload private key as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: private-key
           path: private_key.pem
