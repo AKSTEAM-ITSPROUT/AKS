@@ -27,3 +27,18 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az account show
+
+      - name: Create VM in Azure
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az vm create \
+            --resource-group "IT-SPROUT" \
+            --location westus \
+            --name SampleVM \
+            --image Ubuntu2204 \
+            --size "Standart_DS2_v2" \
+            --admin-username azureuser \
+            --generate-ssh-keys \
+            --verbose
