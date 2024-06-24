@@ -35,10 +35,20 @@ jobs:
           inlineScript: |
             az vm create \
             --resource-group "IT-SPROUT" \
-            --location westus \
+            --location francecentral \
             --name SampleVM \
             --image Ubuntu2204 \
-            --size "Standart_DS2_v2" \
+            --size "Standard_B1s" \
             --admin-username azureuser \
             --generate-ssh-keys \
             --verbose
+
+      - name: Extract private key
+        run: |
+          cat ~/.ssh/id_rsa > private_key.pem
+
+      - name: Upload private key as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: private-key
+          path: private_key.pem
